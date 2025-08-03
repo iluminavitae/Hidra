@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hidratatec</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app-container">
+        <!-- Tela de Carregamento/Boas-vindas -->
+        <div id="loading-screen">
+            <img src="logo.png" alt="Logo Hidratatec" class="loading-logo">
+            <p class="slogan">Beba água, conquiste seu dia.</p>
+        </div>
+
+        <!-- Tela Principal -->
+        <main id="main-screen" class="hidden">
+            <header class="app-header">
+                <div id="logo-container">
+                    <!-- O logo será inserido aqui -->
+                </div>
+                <h1>Hidratatec</h1>
+                <button id="settings-btn" class="icon-btn">⚙️</button>
+            </header>
+
+            <div id="progress-container">
+                <div id="water-drop-progress">
+                    <div id="water-fill"></div>
+                    <div id="progress-text">
+                        <span id="current-amount">0</span>ml
+                    </div>
+                </div>
+                <div id="goal-text">
+                    Meta: <span id="daily-goal">2000</span>ml
+                </div>
+            </div>
+
+            <div id="quick-actions">
+                <button id="add-water-btn" class="main-action-btn">+</button>
+            </div>
+
+            <div id="streak-counter">
+                <p>🔥 <span id="streak-days">0</span> dias de sequência!</p>
+            </div>
+        </main>
+
+        <!-- Modal para Adicionar Água -->
+        <div id="add-water-modal" class="modal hidden">
+            <div class="modal-content">
+                <button class="close-btn">&times;</button>
+                <h2>Adicionar Consumo</h2>
+                <div class="presets">
+                    <button class="preset-btn" data-amount="150">Copo (150ml )</button>
+                    <button class="preset-btn" data-amount="300">Copo G (300ml)</button>
+                    <button class="preset-btn" data-amount="500">Garrafa (500ml)</button>
+                    <button class="preset-btn" data-amount="750">Squeeze (750ml)</button>
+                </div>
+                <input type="number" id="custom-amount" placeholder="Ou digite um valor (ml)">
+                <button id="confirm-add-btn" class="main-action-btn">Adicionar</button>
+            </div>
+        </div>
+
+        <!-- Modal de Configuração Inicial (Onboarding) -->
+        <div id="onboarding-modal" class="modal">
+             <div class="modal-content">
+                <h2>Bem-vindo ao Hidratatec!</h2>
+                <p>Vamos personalizar sua meta de hidratação.</p>
+                <input type="number" id="user-weight" placeholder="Seu peso (kg)" required>
+                <select id="activity-level">
+                    <option value="1.2">Sedentário (pouco ou nenhum exercício)</option>
+                    <option value="1.4">Leve (exercício 1-3 dias/semana)</option>
+                    <option value="1.6">Moderado (exercício 3-5 dias/semana)</option>
+                    <option value="1.8">Intenso (exercício 6-7 dias/semana)</option>
+                </select>
+                <button id="save-settings-btn" class="main-action-btn">Calcular e Começar</button>
+            </div>
+        </div>
+        
+        <!-- Animação de Conquista -->
+        <div id="goal-achieved-animation" class="hidden">
+            <div class="checkmark-icon">✓</div>
+            <p>Meta Atingida!</p>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
